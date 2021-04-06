@@ -1,20 +1,45 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
+    <Ball></Ball>
+    <keep-alive></keep-alive>
+    <HomeNav v-show="$route.meta.showNav"></HomeNav>
     <router-view/>
+    <div class="hz" v-show="$route.meta.showNav"></div>
   </div>
 </template>
 
-<style>
+<script>
+import HomeNav from "./components/HomeNav.vue"
+import Ball from "./components/Ball";
+
+export default {
+  components: {
+    HomeNav,
+    Ball
+  },
+  created(){
+
+  }
+}
+</script>
+
+<style lang="less" scoped>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'MXiangHeHeiTC', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
+  //padding-bottom: 1.1rem;
+  font-size: .28rem;
+
+  a {
+    color: #333;
+  }
+
+  .hz {
+    width: 100%;
+    height: 1rem;
+  }
 }
 
 #nav {
